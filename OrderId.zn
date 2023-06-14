@@ -30,7 +30,7 @@ library OrderId
 		constant integer Order_barkskin = $d00a7;
 		constant integer Order_barkskinoff = $d00a9;
 		constant integer Order_barkskinon = $d00a8;
-		constant integer Order_battleroar = $d0083;
+		constant integer Order_battleroar = $d0277;
 		constant integer Order_battlestations = $d0083;
 		constant integer Order_bearform = $d00aa;
 		constant integer Order_berserk = $d0084;

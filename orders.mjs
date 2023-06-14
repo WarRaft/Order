@@ -31,7 +31,7 @@ export default {
     barkskin: 852135,
     barkskinoff: 852137,
     barkskinon: 852136,
-    battleroar: 852099,
+    battleroar: 852599,
     battlestations: 852099,
     bearform: 852138,
     berserk: 852100,
