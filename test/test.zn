@@ -28,7 +28,7 @@ library Test {
             // set udg_unit = gg_unit_Hblm_0001
 
             if (s == "-st"){
-                IssueImmediateOrderById(gg_unit_Hmkg_0000, Order_stunned);
+                IssueImmediateOrderById(gg_unit_Hmkg_0000, Order_bolt);
             }
 
         });
