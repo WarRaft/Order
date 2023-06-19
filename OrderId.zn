@@ -1,6 +1,6 @@
-library OrderId
+library OrderId {
 	public {
-		constant integer Order_OFFSET = $d0002;
+		constant integer Order_OFFSET = 0xd0002;
 		constant integer Order_absorb = $d0231;
 		constant integer Order_acidbomb = $d02b6;
 		constant integer Order_acolyteharvest = $d00d9;

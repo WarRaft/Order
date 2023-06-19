@@ -1,0 +1,19 @@
+library Test {
+    function onInit(){
+        trigger t = CreateTrigger();
+        integer i;
+        
+        for (0 <= i < bj_MAX_PLAYER_SLOTS){
+            TriggerRegisterPlayerUnitEvent(t, Player(i), EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER, null);
+            TriggerRegisterPlayerUnitEvent(t, Player(i), EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER, null);
+            TriggerRegisterPlayerUnitEvent(t, Player(i), EVENT_PLAYER_UNIT_ISSUED_ORDER, null);
+        }
+        
+        TriggerAddAction(t, function (){
+            integer id = GetIssuedOrderId();
+        
+            BJDebugMsg(I2S( id ));
+        
+        });
+    }
+}
