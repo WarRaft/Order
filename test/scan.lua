@@ -15,11 +15,7 @@ function generateStrings(prefix, length)
         while charCode <= 122 do
             if charCode >= 48 and charCode <= 57 or charCode >= 97 and charCode <= 122 then
                 local character = string.char(charCode)
-                generateStrings(
-                        nil,
-                        tostring(prefix) .. character,
-                        length - 1
-                )
+                generateStrings(tostring(prefix) .. character,length - 1)
             end
             charCode = charCode + 1
         end
