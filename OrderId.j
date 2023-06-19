@@ -1,9 +1,34 @@
 globals
+
+	// Hidden orders
 	constant integer Order_OFFSET = $d0002
+	constant integer Order_cancel = $d0008
+	constant integer Order_instant1 = $d0017
+	constant integer Order_instant2 = $d0013
+	constant integer Order_instant3 = $d0007
+	constant integer Order_instant4 = $d0033
+	constant integer Order_instant5 = $d000b
+	constant integer Order_moveslot1 = $d0022
+	constant integer Order_moveslot2 = $d0023
+	constant integer Order_moveslot3 = $d0024
+	constant integer Order_moveslot4 = $d0025
+	constant integer Order_moveslot5 = $d0026
+	constant integer Order_moveslot6 = $d0027
+	constant integer Order_scrollofspeed = $d013d
+	constant integer Order_skillmenu = $d0020
+	constant integer Order_stunned = $d0005
+	constant integer Order_useslot1 = $d0028
+	constant integer Order_useslot2 = $d0029
+	constant integer Order_useslot3 = $d002a
+	constant integer Order_useslot4 = $d002b
+	constant integer Order_useslot5 = $d002c
+	constant integer Order_useslot6 = $d002d
+
+	// Named orders
+	constant integer Order_AImove = $d0014
 	constant integer Order_absorb = $d0231
 	constant integer Order_acidbomb = $d02b6
 	constant integer Order_acolyteharvest = $d00d9
-	constant integer Order_AImove = $d0014
 	constant integer Order_ambush = $d00a3
 	constant integer Order_ancestralspirit = $d020a
 	constant integer Order_ancestralspirittarget = $d020b
@@ -348,24 +373,4 @@ globals
 	constant integer Order_whirlwind = $d00a0
 	constant integer Order_windwalk = $d00a1
 	constant integer Order_wispharvest = $d00f6
-	constant integer Order_scrollofspeed = $d013d
-	constant integer Order_cancel = $d0008
-	constant integer Order_moveslot1 = $d0022
-	constant integer Order_moveslot2 = $d0023
-	constant integer Order_moveslot3 = $d0024
-	constant integer Order_moveslot4 = $d0025
-	constant integer Order_moveslot5 = $d0026
-	constant integer Order_moveslot6 = $d0027
-	constant integer Order_useslot1 = $d0028
-	constant integer Order_useslot2 = $d0029
-	constant integer Order_useslot3 = $d002a
-	constant integer Order_useslot4 = $d002b
-	constant integer Order_useslot5 = $d002c
-	constant integer Order_useslot6 = $d002d
-	constant integer Order_skillmenu = $d0020
-	constant integer Order_stunned = $d0005
-	constant integer Order_instant1 = $d0017
-	constant integer Order_instant2 = $d0013
-	constant integer Order_instant3 = $d0007
-	constant integer Order_instant4 = $d0033
 endglobals

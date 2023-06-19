@@ -1,11 +1,9 @@
 /** @type {Object.<string, number>} */
-export default {
-    OFFSET: 851970,
-
+export const ordersNamed = {
+    AImove: 851988,
     absorb: 852529,
     acidbomb: 852662,
     acolyteharvest: 852185,
-    AImove: 851988,
     ambush: 852131,
     ancestralspirit: 852490,
     ancestralspirittarget: 852491,
@@ -350,26 +348,49 @@ export default {
     whirlwind: 852128,
     windwalk: 852129,
     wispharvest: 852214,
+}
 
-    scrollofspeed: 852285,
+/** @type {Object.<string, number>} */
+export const ordersHidden = {
+    /*
+    levelup
+    smart
+    phoenix
+    strongdrink
+    */
+    OFFSET: 851970,
     cancel: 851976,
+
+    instant1: 851991,
+    instant2: 851987,
+    instant3: 851975,
+
+    instant4: 852019, //TODO Проверить: Отмена при использовании скиллов, предметов, передвижения и т.д.
+
+    instant5: 851979, //TODO Проверить: как бы тоже отмена, но она для обучения скиллов и строительства.
     moveslot1: 852002,
     moveslot2: 852003,
     moveslot3: 852004,
     moveslot4: 852005,
     moveslot5: 852006,
-    moveslot6: 852007,
-    useslot1: 852008,
-    useslot2: 852009,
-    useslot3: 852010,
-    useslot4: 852011,
-    useslot5: 852012,
-    useslot6: 852013,
+    moveslot6: 0xd0027,
+
+    scrollofspeed: 852285,
     skillmenu: 852000,
+
     stunned: 851973,
 
-    instant1: 851991,
-    instant2: 851987,
-    instant3: 851975,
-    instant4: 852019,
+    useslot1: 0xd0028,
+    useslot2: 0xd0029,
+    useslot3: 0xd002a,
+    useslot4: 0xd002b,
+    useslot5: 0xd002c,
+    useslot6: 0xd002d,
 }
+
+/*
+But, you forgot 852274 (Item Illusion), one of the most commonly asked-for order integers (since there is no string for it).
+
+You also forgot others. Here's a list I downloaded in 2009 (I have forgotten the source and I have not checked them all for accuracy or validity, but it mentions some orders you missed, like "smart" and "skillmenu" and "cancel".)
+
+ */
