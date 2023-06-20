@@ -31,6 +31,10 @@ library Test {
                 IssueImmediateOrderById(gg_unit_Hmkg_0000, Order_stunned);
             }
 
+            if (s == "-u1"){
+                IssueImmediateOrderById(gg_unit_Hmkg_0000, Order_useslot1);
+            }
+
         });
             
 
