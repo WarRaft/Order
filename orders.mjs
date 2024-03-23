@@ -380,12 +380,12 @@ export const ordersHidden = {
 
     stunned: 851973,
 
-    useslot1: 0xd0028,
-    useslot2: 0xd0029,
-    useslot3: 0xd002a,
-    useslot4: 0xd002b,
-    useslot5: 0xd002c,
-    useslot6: 0xd002d,
+    useslot1: 852008,
+    useslot2: 852009,
+    useslot3: 852010,
+    useslot4: 852011,
+    useslot5: 852012,
+    useslot6: 852013,
 }
 
 /*
@@ -393,4 +393,20 @@ But, you forgot 852274 (Item Illusion), one of the most commonly asked-for order
 
 You also forgot others. Here's a list I downloaded in 2009 (I have forgotten the source and I have not checked them all for accuracy or validity, but it mentions some orders you missed, like "smart" and "skillmenu" and "cancel".)
 
+ */
+
+/*
+Отсутсвует Order_wandillusion = 852274 (надо перепроверить).
+Отсутвуют Order_itembuild = 852619 и integer Order_reveal = 852270.
+ */
+
+/*
+I found unspecified order 852619, unit gets this order when it uses ability based on 'Albt' (Build Tiny Scout Tower). This order does not have a name. The order is common for all item-build abilities according to my tests.
+
+I made next constant.
+constant integer Order_itembuild = 852619
+ */
+
+/*
+851974 - выход из стана
  */
