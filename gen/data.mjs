@@ -1,5 +1,5 @@
 /** @type {Object.<string, number>} */
-export const ordersNamed = {
+export const named = {
     AImove: 851988,
     absorb: 852529,
     acidbomb: 852662,
@@ -351,7 +351,7 @@ export const ordersNamed = {
 }
 
 /** @type {Object.<string, number>} */
-export const ordersHidden = {
+export const hidden = {
     /*
     levelup
     smart
