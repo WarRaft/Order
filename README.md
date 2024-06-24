@@ -9,7 +9,7 @@ List of order ID for Warcraft III.
 
 ## AngelScript
 [Download](https://raw.githubusercontent.com/WarRaft/Order/master/src/Order.as)
-```
+```C++
 enum Order {
 
 	//Hidden orders
@@ -389,7 +389,7 @@ enum Order {
 ```
 ## VJASS
 [Download](https://raw.githubusercontent.com/WarRaft/Order/master/src/Order.j)
-```
+```C++
 globals
 
 	// Hidden orders
@@ -769,7 +769,7 @@ endglobals
 ```
 ## ZINC
 [Download](https://raw.githubusercontent.com/WarRaft/Order/master/src/Order.zn)
-```
+```C++
 library Order {
 	public {
 
@@ -1151,7 +1151,7 @@ library Order {
 ```
 ## Lua
 [Download](https://raw.githubusercontent.com/WarRaft/Order/master/src/Order.lua)
-```
+```C++
 -- Hidden orders
 Order_OFFSET = 0xd0002; -- 851970
 Order_cancel = 0xd0008; -- 851976

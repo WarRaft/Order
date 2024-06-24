@@ -74,7 +74,7 @@ List of order ID for Warcraft III.
 
 const mdBlock = (head, file) => fs.writeFileSync(md, `## ${head}
 [Download](https://raw.githubusercontent.com/WarRaft/Order/master${file.replace('..', '')})
-\`\`\`
+\`\`\`C++
 ${fs.readFileSync(file)}
 \`\`\`\n`, {flag: 'a+'})
 
