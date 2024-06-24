@@ -60,7 +60,16 @@ fs.writeFileSync(zinc, '\n\t}\n}', {flag: 'a+'})
 fs.writeFileSync(as, '\n}', {flag: 'a+'})
 
 
-fs.writeFileSync(md, '# Order\n\nList of order ID for Warcraft III.\n', {flag: 'w+'})
+fs.writeFileSync(md, `# Order
+
+List of order ID for Warcraft III.
+
+- [AngelScript](#angelscript)
+- [VJASS](#vjass)
+- [ZINC](#zinc)
+- [LUA](#lua)
+
+`, {flag: 'w+'})
 
 
 const mdBlock = (head, file) => fs.writeFileSync(md, `## ${head}
