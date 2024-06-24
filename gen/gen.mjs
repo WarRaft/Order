@@ -5,10 +5,11 @@ import path from 'path'
 
 const src = path.join('..', 'src')
 
+const as = path.join(src, 'Order.as')
 const vjass = path.join(src, 'Order.j')
 const zinc = path.join(src, 'Order.zn')
-const zincO2S = path.join(src, 'Order2S.zn')
 const lua = path.join(src, 'Order.lua')
+const md = path.join(src, '..', 'README.md')
 
 const hiddenHeader = 'Hidden orders'
 const namedHeader = 'Named orders'
@@ -17,29 +18,57 @@ rmDir(src)
 if (!fs.existsSync(src)) fs.mkdirSync(src, {recursive: true, mode: '0777'})
 
 fs.writeFileSync(vjass, `globals\n\n\t// ${hiddenHeader}\n`, {flag: 'w+'})
-fs.writeFileSync(zinc, `library OrderId {\n\tpublic {\n\n\t\t// ${hiddenHeader}\n`, {flag: 'w+'})
-fs.writeFileSync(zincO2S, 'library OrderId2Name {\n\tpublic function OrderId2Name(integer id) -> string {\n', {flag: 'w+'})
+fs.writeFileSync(zinc, `library Order {\n\tpublic {\n\n\t\t// ${hiddenHeader}\n`, {flag: 'w+'})
 fs.writeFileSync(lua, `-- ${hiddenHeader}\n`, {flag: 'w+'})
+fs.writeFileSync(as, `enum Order {\n\n\t//${hiddenHeader}\n`, {flag: 'w+'})
+
+// https://nodejs.org/api/fs.html#file-system-flags
 
 /** @param {Object.<string, number>} orders */
 const f = orders => {
-    for (const [num, v] of Object.entries(orders)) {
-        const hex = v.toString(16)
-        fs.writeFileSync(vjass, `\tconstant integer Order_${num} = $${hex}\n`, {flag: 'a+'})
-        fs.writeFileSync(zinc, `\t\tconstant integer Order_${num} = ${v};\n`, {flag: 'a+'})
-        fs.writeFileSync(zincO2S, `\t\tif (id == ${v}) return "${num}";\n`, {flag: 'a+'})
-        fs.writeFileSync(lua, `Order_${num} = 0x${hex};\n`, {flag: 'a+'})
+    const $vjass = []
+    const $zinc = []
+    const $lua = []
+    const $as = []
+
+    for (let i = 0; i < Object.entries(orders).length; i++) {
+        const [name, int] = Object.entries(orders)[i]
+        const hex = int.toString(16)
+        $vjass.push(`\tconstant integer Order_${name} = $${hex} // ${int}`)
+        $zinc.push(`\t\tconstant integer Order_${name} = ${int}; // 0x${hex}`)
+        $lua.push(`Order_${name} = 0x${hex}; -- ${int}`)
+        $as.push(`\t${name} = 0x${hex} /* ${int} */`)
     }
+
+    fs.writeFileSync(vjass, $vjass.join('\n'), {flag: 'a+'})
+    fs.writeFileSync(zinc, $zinc.join('\n'), {flag: 'a+'})
+    fs.writeFileSync(lua, $lua.join('\n'), {flag: 'a+'})
+    fs.writeFileSync(as, $as.join(',\n'), {flag: 'a+'})
 }
 
 f(hidden)
 
-fs.writeFileSync(vjass, `\n\t// ${namedHeader}\n`, {flag: 'a+'})
-fs.writeFileSync(zinc, `\n\t\t// ${namedHeader}\n`, {flag: 'a+'})
-fs.writeFileSync(lua, `\n-- ${namedHeader}\n`, {flag: 'a+'})
+fs.writeFileSync(vjass, `\n\n\t// ${namedHeader}\n`, {flag: 'a+'})
+fs.writeFileSync(zinc, `\n\n\t\t// ${namedHeader}\n`, {flag: 'a+'})
+fs.writeFileSync(lua, `\n\n-- ${namedHeader}\n`, {flag: 'a+'})
+fs.writeFileSync(as, `,\n\n\t// ${namedHeader}\n`, {flag: 'a+'})
 
 f(named)
 
-fs.writeFileSync(vjass, 'endglobals', {flag: 'a+'})
-fs.writeFileSync(zinc, '\t}\n}', {flag: 'a+'})
-fs.writeFileSync(zincO2S, '\t\treturn I2S(id);\n\t}\n}', {flag: 'a+'})
+fs.writeFileSync(vjass, '\nendglobals', {flag: 'a+'})
+fs.writeFileSync(zinc, '\n\t}\n}', {flag: 'a+'})
+fs.writeFileSync(as, '\n}', {flag: 'a+'})
+
+
+fs.writeFileSync(md, '# Order\n\nList of order ID for Warcraft III.\n', {flag: 'w+'})
+
+
+const mdBlock = (head, file) => fs.writeFileSync(md, `## ${head}
+[Download](https://raw.githubusercontent.com/WarRaft/Order/master${file.replace('..', '')})
+\`\`\`
+${fs.readFileSync(file)}
+\`\`\`\n`, {flag: 'a+'})
+
+mdBlock('VJASS', vjass)
+mdBlock('ZINC', zinc)
+mdBlock('Lua', lua)
