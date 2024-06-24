@@ -69,6 +69,7 @@ const mdBlock = (head, file) => fs.writeFileSync(md, `## ${head}
 ${fs.readFileSync(file)}
 \`\`\`\n`, {flag: 'a+'})
 
+mdBlock('AngelScript', as)
 mdBlock('VJASS', vjass)
 mdBlock('ZINC', zinc)
 mdBlock('Lua', lua)
