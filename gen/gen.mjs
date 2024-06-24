@@ -72,13 +72,13 @@ List of order ID for Warcraft III.
 `, {flag: 'w+'})
 
 
-const mdBlock = (head, file) => fs.writeFileSync(md, `## ${head}
+const mdBlock = (head, file, l) => fs.writeFileSync(md, `## ${head}
 [Download](https://raw.githubusercontent.com/WarRaft/Order/master${file.replace('..', '')})
-\`\`\`C++
+\`\`\`${l}
 ${fs.readFileSync(file)}
 \`\`\`\n`, {flag: 'a+'})
 
-mdBlock('AngelScript', as)
-mdBlock('VJASS', vjass)
-mdBlock('ZINC', zinc)
-mdBlock('Lua', lua)
+mdBlock('AngelScript', as, 'C++')
+mdBlock('VJASS', vjass, 'C++')
+mdBlock('ZINC', zinc, 'C++')
+mdBlock('Lua', lua, 'Lua')

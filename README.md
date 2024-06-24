@@ -1151,7 +1151,7 @@ library Order {
 ```
 ## Lua
 [Download](https://raw.githubusercontent.com/WarRaft/Order/master/src/Order.lua)
-```C++
+```Lua
 -- Hidden orders
 Order_OFFSET = 0xd0002; -- 851970
 Order_cancel = 0xd0008; -- 851976
