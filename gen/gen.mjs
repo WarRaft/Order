@@ -6,7 +6,7 @@ import path from 'path'
 const src = path.join('..', 'src')
 
 const as = path.join(src, 'Order.as')
-const vjass = path.join(src, 'Order.j')
+const vjass = path.join(src, 'Order.vj')
 const zinc = path.join(src, 'Order.zn')
 const lua = path.join(src, 'Order.lua')
 const md = path.join(src, '..', 'README.md')
